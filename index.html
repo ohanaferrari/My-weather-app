@@ -6,7 +6,16 @@
     <title>My Weather App</title>
 </head>
 <body>
-    <h1>My Weather App</h1>
+  <header>
+    <form id="search-form">
+        <input type="text" id="city-input" placeholder="Enter a city..." required />
+        <button type="submit">Search</button>
+  </header>
+    <h1>Florianópolis</h1>
+        <p><span id="week-day">Tuesday</span><span id="time">19:51</span>, <span id="condition">moderate rain</span>
+          <br />
+          Humidity: <span id="humidity">60%</span>, Wind Speed: <span id="wind">7.2km/h</span></p>
+        <span id="emoji">🌦️</span><span id="temperature">25°C</span>
     <footer>
         <p>
           This project was coded by
