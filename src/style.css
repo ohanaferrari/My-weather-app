@@ -12,7 +12,7 @@ body {
 }  
 .search-form-input {
     background-color: #f9f7fe;
-    width: 80%;
+    width: 75%;
     border: none;
     border-radius: 6px;
     color: rgba(39, 33, 66, 0.4);
@@ -20,4 +20,15 @@ body {
     font-size: 16px;
     height: 50px;
     padding: 0 20px;
+}
+button {
+    background-color: #885df1;
+    color: white;
+    margin-left: 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    height: 50px;
+    padding: 0 20px;
+    cursor: pointer;
 }
