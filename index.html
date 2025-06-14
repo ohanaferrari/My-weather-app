@@ -13,16 +13,26 @@
         <input type="text" class="search-form-input" placeholder="Enter a city..." required />
         <button type="submit">Search</button>
   </header>
-    <h1>Florianópolis</h1>
-        <p><span id="week-day">Tuesday</span><span id="time">19:51</span>, <span id="condition">moderate rain</span>
-          <br />
-          Humidity: <span id="humidity">60%</span>, Wind Speed: <span id="wind">7.2km/h</span></p>
-        <span id="emoji">🌦️</span><span id="temperature">25°C</span>
-    <footer>
+  <main>
+    <div class="weather-data">
+      <div>
+        <h1 class="city">Florianópolis</h1>
+          <p class="weather-data-details"><span class="week-day">Tuesday </span><span class="time">19:51</span>, <span class="condition">moderate rain</span>
+            <br />
+          Humidity: <span class="humidity">60%</span>, Wind Speed: <span class="wind">7.2km/h</span></p>
+      </div>
+      <div class="temperature-container">
+        <span class="emoji">🌦️</span>
+        <span class="temperature">25</span>
+        <span class="unit">°C</span>
+      </div>
+    </div>
+      </main>
+        <footer>
         <p>
           This project was coded by
           <a href="https://github.com/ohanaferrari" target="_blank">Ohana Ferrari</a> and is
-          <a href="https://github.com/ohanaferrari/my-weather-app" target="_blank"> on GitHub</a> and
+          <a href="https://github.com/ohanaferrari/my-weather-app" target="_blank"> open-sourced on GitHub</a> and
           <a href="https://mywheaterapp-shecodes.netlify.app/" target="_blank">hosted on Netlify</a>
         </p>
       </footer>

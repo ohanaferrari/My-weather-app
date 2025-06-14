@@ -43,10 +43,45 @@ button {
     padding: 0 20px;
     cursor: pointer;
 }
+h1 {
+    margin: 0;
+    font-size: 38px;
+    line-height: 48px;
+}
+.weather-data {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.weather-data-details {
+    font-size: 16px;
+    color: rgba(39, 33, 66, 0.4);
+    line-height: 20px;;
+}
+.humidity, .wind {
+    color: #885df1;
+    font-weight: 550;
+}
+.temperature-container {
+    display: flex;
+}
+.emoji {
+    font-size: 40px;
+    margin-top: 12px;
+}
+.temperature {
+    font-size: 70px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.unit {
+    font-size: 28px;
+    margin-top: 10px;
+}
 footer {
     text-align: center;
     border-top: 1px solid #f9f7fe;
     padding: 30px 0 0 0;
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.4);
 }
