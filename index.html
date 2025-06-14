@@ -10,20 +10,21 @@
   <div class="container">
   <header>
     <form class="search-form" id="search-form">
-        <input type="text" class="search-form-input" placeholder="Enter a city..." required />
+        <input type="text" class="search-form-input" id="form-input" placeholder="Enter a city..." required />
         <button type="submit">Search</button>
+    </form>
   </header>
   <main>
     <div class="weather-data">
       <div>
-        <h1 class="city">Florianópolis</h1>
+        <h1 class="city" id="city">Florianópolis</h1>
           <p class="weather-data-details"><span class="week-day">Tuesday </span><span class="time">19:51</span>, <span class="condition">moderate rain</span>
             <br />
           Humidity: <span class="humidity">60%</span>, Wind Speed: <span class="wind">7.2km/h</span></p>
       </div>
       <div class="temperature-container">
         <span class="emoji">🌦️</span>
-        <span class="temperature">25</span>
+        <span class="temperature" id="temperature">25</span>
         <span class="unit">°C</span>
       </div>
     </div>
@@ -37,6 +38,7 @@
         </p>
       </footer>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <script src="src/script.js"></script>
 </body>
 </html>
