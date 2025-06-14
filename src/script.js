@@ -13,6 +13,14 @@ function displayTemperature(response) {
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   wind.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
   icon.innerHTML = `<img src="${response.data.condition.icon_url}" alt="${response.data.condition.description}" />`;
+
+  let cityTimestamp = response.data.time * 1000; // convert to ms
+  let cityDate = new Date(cityTimestamp);
+  let cityHour = cityDate.getHours();
+
+  document.body.style.backgroundImage = getBackgroundImage(response.data.condition.description, cityHour);
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundPosition = "center";
 }
 
 function search(city) {
@@ -66,5 +74,27 @@ searchForm.addEventListener("submit", searchSubmit);
 
 let currentDate = new Date();
 formatDate(currentDate);
+
+function getBackgroundImage(condition, cityHour) {
+  condition = condition.toLowerCase();
+
+  let isDay = cityHour >= 6 && cityHour < 18;
+
+  if (condition.includes("clear")) {
+    return isDay ? "url('images/clear-day.jpg')" : "url('images/clear-night.jpg')";
+  } else if (condition.includes("cloud")) {
+    return isDay ? "url('images/cloudy-day.jpg')" : "url('images/cloudy-night.jpg')";
+  } else if (condition.includes("rain")) {
+    return isDay ? "url('images/rainy-day.jpg')" : "url('images/rainy-night.jpg')";
+  } else if (condition.includes("snow")) {
+    return isDay ? "url('images/snow-day.jpg')" : "url('images/snow-night.jpg')";
+  } else if (condition.includes("storm") || condition.includes("thunder")) {
+    return isDay ? "url('images/storm.jpg')" : "url('images/storm.jpg')";
+  } else if (condition.includes("mist") || condition.includes("fog")) {
+    return isDay ? "url('images/fog-day.jpg')" : "url('images/fog-night.jpg')";
+  } else {
+    return isDay ? "url('images/default-day.jpg')" : "url('images/default-night.jpg')";
+  }
+}
 
 search("Florianópolis");
