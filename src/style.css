@@ -65,9 +65,9 @@ h1 {
 .temperature-container {
     display: flex;
 }
-.emoji {
-    font-size: 40px;
-    margin-top: 12px;
+.icon {
+    width: 80px;
+    margin-top: -10px;
 }
 .temperature {
     font-size: 70px;
