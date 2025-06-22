@@ -14,7 +14,7 @@ function displayTemperature(response) {
   wind.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
   icon.innerHTML = `<img src="${response.data.condition.icon_url}" alt="${response.data.condition.description}" />`;
 
-  let cityTimestamp = response.data.time * 1000; // convert to ms
+  let cityTimestamp = response.data.time * 1000;
   let cityDate = new Date(cityTimestamp);
   let cityHour = cityDate.getHours();
 
