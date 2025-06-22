@@ -21,6 +21,8 @@ function displayTemperature(response) {
   document.body.style.backgroundImage = getBackgroundImage(response.data.condition.description, cityHour);
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundPosition = "center";
+
+  getForecast(response.data.city);
 }
 
 function search(city) {
@@ -96,5 +98,42 @@ function getBackgroundImage(condition, cityHour) {
     return isDay ? "url('images/default-day.jpg')" : "url('images/default-night.jpg')";
   }
 }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()+1];
+}
+
+function getForecast(city) {
+let apiKey = "at320d4o2fcf70104aac4f08799bd0b0";
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecastHtml = "";
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      let iconUrl = day.condition.icon_url;
+      let temperatureMax = Math.round(day.temperature.maximum);
+      let temperatureMin = Math.round(day.temperature.minimum);
+
+      forecastHtml += `
+        <div class="forecast-day">
+          <div class="day-name">${formatDay(day.time)}</div>
+          <img src="${iconUrl}" alt="${day.condition.description}" class="forecast-icon" />
+          <div class="forecast-temperature">
+            <span class="max">${temperatureMax}°</span>
+            <span class="min">${temperatureMin}°</span>
+          </div>
+        </div>`;
+    }
+  }
+  );
+  let forecastElement = document.querySelector(".forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 
 search("Florianópolis");
